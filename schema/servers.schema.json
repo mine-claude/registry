@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/schema/servers.schema.json",
+  "$id": "https://raw.githubusercontent.com/mine-claude/registry/main/schema/servers.schema.json",
   "title": "MineClaude registry - servers.json",
   "description": "Servers the game lists as suggestions on the Multiplayer screen. Public metadata only.",
   "type": "object",

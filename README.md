@@ -7,9 +7,9 @@ que os validam — **nada aqui é código do jogo**.
 O jogo lê os arquivos crus, direto do GitHub:
 
 ```
-https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/relays.json
-https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/servers.json
-https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/mods.json
+https://raw.githubusercontent.com/mine-claude/registry/main/relays.json
+https://raw.githubusercontent.com/mine-claude/registry/main/servers.json
+https://raw.githubusercontent.com/mine-claude/registry/main/mods.json
 ```
 
 Quem hospeda o próprio MineClaude pode apontar o jogo para outra lista (variável de ambiente
@@ -26,7 +26,7 @@ com o que já vem embutido e com a última cópia boa que tiver guardado; só ap
 
 Cada arquivo tem a mesma casca: `version` (hoje `1`), `updated` (a data da última mudança) e a lista.
 A forma exata de cada entrada está em `schema/*.schema.json`, e o formato está explicado com mais
-detalhe em [`docs/registry.md`](https://github.com/mine-claude/mineclaude-registry) do repositório do
+detalhe em [`docs/registry.md`](https://github.com/mine-claude/registry) do repositório do
 jogo.
 
 ### `relays.json` — um relay, e ele está **em teste**

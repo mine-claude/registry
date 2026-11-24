@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/schema/relays.schema.json",
+  "$id": "https://raw.githubusercontent.com/mine-claude/registry/main/schema/relays.schema.json",
   "title": "MineClaude registry - relays.json",
   "description": "Relays the game may suggest for a browser-hosted world. Public metadata only.",
   "type": "object",

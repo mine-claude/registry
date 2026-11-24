@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/schema/mods.schema.json",
+  "$id": "https://raw.githubusercontent.com/mine-claude/registry/main/schema/mods.schema.json",
   "title": "MineClaude registry - mods.json",
   "description": "Approved mods: where the .mcmod is and the sha256 the game pins. Public metadata only, no code.",
   "type": "object",

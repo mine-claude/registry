@@ -1,5 +1,5 @@
 {
-  "name": "mineclaude-registry",
+  "name": "registry",
   "version": "1.0.0",
   "private": true,
   "description": "Public registry of MineClaude relays, servers and approved mods. Metadata only.",
