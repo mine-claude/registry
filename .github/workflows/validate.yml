@@ -26,6 +26,10 @@ jobs:
       - name: Install the validator's dependencies
         run: npm install --no-audit --no-fund
 
+      # The validator's own rules, with no network: the image checks against crafted bytes and the schema's URL rules.
+      - name: Test the validator
+        run: npm test
+
       # The same command a contributor runs locally: formatting, schema, rules, and the release asset's sha256.
       - name: Validate the registry
         run: node scripts/validate.mjs

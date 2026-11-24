@@ -7,7 +7,7 @@
 // Exit code 0 = everything passed. Every problem is printed, one per line, before exiting 1.
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
@@ -20,10 +20,10 @@ const MAX_ASSET_BYTES = 32 * 1024 * 1024;
 // The images of a mod entry (`icon`, `screenshots`). The game's Mods screen loads them straight from
 // raw.githubusercontent.com, the one image host that answers `Access-Control-Allow-Origin: *`, so a card
 // never costs a request to a third party. An icon is a small square; a screenshot is a page-sized picture.
-const IMAGE_HOST = 'raw.githubusercontent.com';
-const MAX_ICON_BYTES = 64 * 1024;
-const MAX_SHOT_BYTES = 512 * 1024;
-const MAX_ICON_SIDE = 256;
+export const IMAGE_HOST = 'raw.githubusercontent.com';
+export const MAX_ICON_BYTES = 64 * 1024;
+export const MAX_SHOT_BYTES = 512 * 1024;
+export const MAX_ICON_SIDE = 256;
 
 const problems = [];
 const fail = (file, msg) => problems.push(`${file}: ${msg}`);
@@ -115,7 +115,7 @@ async function checkAsset(mod) {
 }
 
 /** PNG or WebP by the bytes themselves, never by the server's word, plus a PNG's size out of its IHDR. */
-function readImage(bytes) {
+export function readImage(bytes) {
   const pngMagic = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
   if (pngMagic.every((b, i) => bytes[i] === b)) {
     const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
@@ -130,26 +130,34 @@ function readImage(bytes) {
   return riff ? { format: 'webp', width: 0, height: 0 } : { format: null, width: 0, height: 0 };
 }
 
-/** One `icon`/`screenshots` URL: it is really there, it is really a PNG/WebP, and it fits under its cap. */
-async function checkImage(where, url, { maxBytes, square }) {
+/**
+ * One `icon`/`screenshots` URL: it is really there, it is really a PNG/WebP, and it fits under its cap. Returns the
+ * problems instead of recording them, so `scripts/self-test.mjs` can feed it crafted bytes and read the verdict.
+ */
+export async function imageProblems(where, url, { maxBytes, square }) {
   let res;
   try {
     res = await fetch(url, { redirect: 'follow' });
   } catch (e) {
-    fail('mods.json', `${where}: the image could not be fetched (${e?.message ?? e})`);
-    return;
+    return [`${where}: the image could not be fetched (${e?.message ?? e})`];
   }
-  if (!res.ok) { fail('mods.json', `${where}: the image answered HTTP ${res.status} - is it committed on that branch?`); return; }
+  if (!res.ok) return [`${where}: the image answered HTTP ${res.status} - is it committed on that branch?`];
   const bytes = new Uint8Array(await res.arrayBuffer());
-  if (bytes.byteLength > maxBytes) { fail('mods.json', `${where}: the image is ${bytes.byteLength} bytes, over the ${maxBytes} limit`); return; }
+  if (bytes.byteLength > maxBytes) return [`${where}: the image is ${bytes.byteLength} bytes, over the ${maxBytes} limit`];
   const img = readImage(bytes);
-  if (!img.format) { fail('mods.json', `${where}: the bytes are neither a PNG nor a WebP`); return; }
-  if (!url.toLowerCase().endsWith(`.${img.format}`)) fail('mods.json', `${where}: the URL ends in .${url.split('.').pop()} but the bytes are a ${img.format}`);
-  if (!square || img.format !== 'png') return;
-  if (img.width < 1 || img.height < 1) { fail('mods.json', `${where}: the PNG has no readable size`); return; }
-  if (img.width !== img.height) fail('mods.json', `${where}: an icon has to be square (this one is ${img.width}x${img.height})`);
-  if (img.width > MAX_ICON_SIDE) fail('mods.json', `${where}: an icon is ${MAX_ICON_SIDE}x${MAX_ICON_SIDE} at most (this one is ${img.width}x${img.height})`);
+  if (!img.format) return [`${where}: the bytes are neither a PNG nor a WebP`];
+  const found = [];
+  if (!url.toLowerCase().endsWith(`.${img.format}`)) found.push(`${where}: the URL ends in .${url.split('.').pop()} but the bytes are a ${img.format}`);
+  if (!square || img.format !== 'png') return found;
+  if (img.width < 1 || img.height < 1) return [...found, `${where}: the PNG has no readable size`];
+  if (img.width !== img.height) found.push(`${where}: an icon has to be square (this one is ${img.width}x${img.height})`);
+  if (img.width > MAX_ICON_SIDE) found.push(`${where}: an icon is ${MAX_ICON_SIDE}x${MAX_ICON_SIDE} at most (this one is ${img.width}x${img.height})`);
+  return found;
 }
+
+const checkImage = async (where, url, opts) => {
+  for (const p of await imageProblems(where, url, opts)) problems.push(`mods.json: ${p}`);
+};
 
 // ---- each file ----
 
@@ -223,17 +231,21 @@ async function checkMods() {
   await Promise.all([...data.mods.filter((m) => /^[0-9a-f]{64}$/.test(m.sha256 ?? '')).map(checkAsset), ...images]);
 }
 
-try {
-  await checkRelays();
-  await checkServers();
-  await checkMods();
-} catch (e) {
-  problems.push(`unexpected failure: ${e?.stack ?? e}`);
-}
+// Run only when this file IS the command. `scripts/self-test.mjs` imports it for the image rules, and an import that
+// validated the whole repository (and called process.exit) could not be tested at all.
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+  try {
+    await checkRelays();
+    await checkServers();
+    await checkMods();
+  } catch (e) {
+    problems.push(`unexpected failure: ${e?.stack ?? e}`);
+  }
 
-if (problems.length) {
-  console.error(`The registry has ${problems.length} problem(s):`);
-  for (const p of problems) console.error(`  - ${p}`);
-  process.exit(1);
+  if (problems.length) {
+    console.error(`The registry has ${problems.length} problem(s):`);
+    for (const p of problems) console.error(`  - ${p}`);
+    process.exit(1);
+  }
+  console.log(OFFLINE ? 'Registry OK (schema and rules; network checks skipped).' : 'Registry OK (schema, rules, release assets and sha256).');
 }
-console.log(OFFLINE ? 'Registry OK (schema and rules; network checks skipped).' : 'Registry OK (schema, rules, release assets and sha256).');
