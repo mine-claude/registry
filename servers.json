@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "updated": "2026-11-24",
+  "servers": [
+    {
+      "id": "oficial",
+      "name": "MineClaude oficial",
+      "address": "https://mineclaude.com",
+      "ws": "wss://mineclaude.com/ws",
+      "official": true,
+      "description": "O servidor anárquico oficial do MineClaude. PvP ligado e itens caem na morte.",
+      "region": "sa-east",
+      "tags": ["anarquico", "pvp", "minigames"],
+      "site": "https://mineclaude.com"
+    }
+  ]
+}

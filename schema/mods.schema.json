@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/mine-claude/mineclaude-registry/main/schema/mods.schema.json",
+  "title": "MineClaude registry - mods.json",
+  "description": "Approved mods: where the .mcmod is and the sha256 the game pins. Public metadata only, no code.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "updated", "mods"],
+  "properties": {
+    "version": { "const": 1 },
+    "updated": { "type": "string", "format": "date" },
+    "mods": {
+      "type": "array",
+      "maxItems": 500,
+      "items": { "$ref": "#/$defs/mod" }
+    }
+  },
+  "$defs": {
+    "mod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "repo", "version", "side", "description", "download", "sha256"],
+      "properties": {
+        "id": {
+          "description": "The mod id inside the .mcmod (package.json name). Never changes.",
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,31}$"
+        },
+        "name": { "type": "string", "minLength": 1, "maxLength": 48 },
+        "repo": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,39}/[A-Za-z0-9._-]{1,100}$" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9A-Za-z.-]+)?$" },
+        "side": {
+          "description": "Where the mod runs: client = browser only, server = server only, both = both halves.",
+          "enum": ["client", "server", "both"]
+        },
+        "description": { "type": "string", "minLength": 1, "maxLength": 400 },
+        "tags": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{1,23}$" }
+        },
+        "download": {
+          "description": "The release asset URL of the .mcmod. https only.",
+          "type": "string",
+          "pattern": "^https://github\\.com/[A-Za-z0-9._-]{1,39}/[A-Za-z0-9._-]{1,100}/releases/download/[A-Za-z0-9._-]{1,64}/[A-Za-z0-9._-]{1,100}\\.mcmod$",
+          "maxLength": 300
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "size": { "type": "integer", "minimum": 1, "maximum": 33554432 },
+        "requires": {
+          "description": "Ids of other registry mods this one needs loaded with it.",
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]{1,31}$" }
+        },
+        "authors": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string", "minLength": 1, "maxLength": 48 }
+        },
+        "homepage": {
+          "type": "string",
+          "pattern": "^https://[A-Za-z0-9.-]+(:[0-9]{1,5})?(/[A-Za-z0-9._~\\-/?=&%+]*)?$",
+          "maxLength": 200
+        }
+      }
+    }
+  }
+}

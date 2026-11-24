@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "updated": "2026-11-24",
+  "mods": [
+    {
+      "id": "chapelaria",
+      "name": "Chapelaria",
+      "repo": "mine-claude/mod-chapelaria",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Seis chapéus para vestir no lugar do capacete: palha, cartola, boné, gorro, chapéu de bruxo e coroa. Só visual, sem armadura.",
+      "tags": ["visual", "cosmetico", "itens"],
+      "download": "https://github.com/mine-claude/mod-chapelaria/releases/download/v0.1.0/chapelaria-0.1.0.mcmod",
+      "sha256": "e49332465dd7656c5119c64729e7147bc351ff0d317ee7ab11edeff0bd501b96",
+      "size": 7119
+    },
+    {
+      "id": "capa_extra",
+      "name": "Capa extra",
+      "repo": "mine-claude/mod-capa-extra",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Uma capa nova no fim da lista (Capa do Veio) e a marca que a destrava: cavar fundo, sozinho, sem vencer ninguém.",
+      "tags": ["visual", "cosmetico", "progresso"],
+      "download": "https://github.com/mine-claude/mod-capa-extra/releases/download/v0.1.0/capa_extra-0.1.0.mcmod",
+      "sha256": "eb5247ecfa54631ae8f521a15ad545bf3035f0fd3c0dc0aad5d03c86135725d6",
+      "size": 1389
+    },
+    {
+      "id": "descanso",
+      "name": "Descanso",
+      "repo": "mine-claude/mod-descanso",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Um saco de dormir que guarda o ponto de renascimento sem cama e sem pular a noite, e um alçapão que não fecha em cima de ninguém.",
+      "tags": ["blocos", "utilidade"],
+      "download": "https://github.com/mine-claude/mod-descanso/releases/download/v0.1.0/descanso-0.1.0.mcmod",
+      "sha256": "93b044a2f81dcf4f7bfe49798c0f993e4ca3ec93bc36da8d2a9aac9801669d48",
+      "size": 1898
+    },
+    {
+      "id": "matilha",
+      "name": "Matilha",
+      "repo": "mine-claude/mod-matilha",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Lobos-guará que caçam em matilha de noite nas planícies: um mob feito só de Goals, com a própria regra de nascimento e o próprio teto.",
+      "tags": ["mob", "mundo"],
+      "download": "https://github.com/mine-claude/mod-matilha/releases/download/v0.1.0/matilha-0.1.0.mcmod",
+      "sha256": "f70cd5544ace29741bc2b1b665cd9d08bf7f8b6281704e63a07c530970610a9f",
+      "size": 1779
+    },
+    {
+      "id": "minimapa",
+      "name": "Minimapa",
+      "repo": "mine-claude/mod-minimapa",
+      "version": "0.1.0",
+      "side": "client",
+      "description": "Um minimapa redondo no canto da tela: relevo, água, mobs, outros jogadores e bússola. Só no cliente.",
+      "tags": ["hud", "visual", "utilidade"],
+      "download": "https://github.com/mine-claude/mod-minimapa/releases/download/v0.1.0/minimapa-0.1.0.mcmod",
+      "sha256": "2ff73a72afe6a20cc86e8e064d983818f44961b1e56b978f15a0533a7c8e0046",
+      "size": 4106
+    },
+    {
+      "id": "veiculos",
+      "name": "Veículos",
+      "repo": "mine-claude/mod-veiculos",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Carro e balão programados pelo SDK: o mod lê o volante do piloto e decide como o veículo anda.",
+      "tags": ["veiculo", "mob", "itens"],
+      "download": "https://github.com/mine-claude/mod-veiculos/releases/download/v0.1.0/veiculos-0.1.0.mcmod",
+      "sha256": "242b38c584be2b263c75aa65c20d9b2e9ae49d0a896de5e75036a2423bbf318e",
+      "size": 5918
+    },
+    {
+      "id": "voz_proximidade",
+      "name": "Voz por proximidade",
+      "repo": "mine-claude/mod-voz-proximidade",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Chat de voz por proximidade: o microfone fica desligado por padrão (apertar-para-falar), o servidor só repassa a quem está perto e o navegador toca cada voz em 3D. Nada é gravado e ninguém vê o IP de ninguém.",
+      "tags": ["voz", "audio", "social"],
+      "download": "https://github.com/mine-claude/mod-voz-proximidade/releases/download/v0.1.0/voz_proximidade-0.1.0.mcmod",
+      "sha256": "1aba347683bbe47e0e12dc57943eafb197e7ce78f2906355cef163fc1e10157d",
+      "size": 11236
+    },
+    {
+      "id": "clima_criativo",
+      "name": "Clima criativo",
+      "repo": "mine-claude/mod-clima-criativo",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Três climas originais: chuva de pétalas, névoa de esporos (um efeito de status no jogador) e aurora. Arte por código. /clima petalas | esporos | aurora.",
+      "tags": ["clima", "visual", "mundo"],
+      "download": "https://github.com/mine-claude/mod-clima-criativo/releases/download/v0.1.0/clima_criativo-0.1.0.mcmod",
+      "sha256": "1aa8346f12e7d081a81da5cc11f4e6ae545ca9c1b197aea0920b134b0649a784",
+      "size": 3902
+    }
+  ]
+}
