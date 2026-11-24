@@ -9,7 +9,11 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Seis chapéus para vestir no lugar do capacete: palha, cartola, boné, gorro, chapéu de bruxo e coroa. Só visual, sem armadura.",
-      "tags": ["visual", "cosmetico", "itens"],
+      "tags": [
+        "visual",
+        "cosmetico",
+        "itens"
+      ],
       "download": "https://github.com/mine-claude/mod-chapelaria/releases/download/v0.1.0/chapelaria-0.1.0.mcmod",
       "sha256": "e49332465dd7656c5119c64729e7147bc351ff0d317ee7ab11edeff0bd501b96",
       "size": 7119
@@ -21,7 +25,11 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Uma capa nova no fim da lista (Capa do Veio) e a marca que a destrava: cavar fundo, sozinho, sem vencer ninguém.",
-      "tags": ["visual", "cosmetico", "progresso"],
+      "tags": [
+        "visual",
+        "cosmetico",
+        "progresso"
+      ],
       "download": "https://github.com/mine-claude/mod-capa-extra/releases/download/v0.1.0/capa_extra-0.1.0.mcmod",
       "sha256": "eb5247ecfa54631ae8f521a15ad545bf3035f0fd3c0dc0aad5d03c86135725d6",
       "size": 1389
@@ -33,7 +41,10 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Um saco de dormir que guarda o ponto de renascimento sem cama e sem pular a noite, e um alçapão que não fecha em cima de ninguém.",
-      "tags": ["blocos", "utilidade"],
+      "tags": [
+        "blocos",
+        "utilidade"
+      ],
       "download": "https://github.com/mine-claude/mod-descanso/releases/download/v0.1.0/descanso-0.1.0.mcmod",
       "sha256": "93b044a2f81dcf4f7bfe49798c0f993e4ca3ec93bc36da8d2a9aac9801669d48",
       "size": 1898
@@ -45,7 +56,10 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Lobos-guará que caçam em matilha de noite nas planícies: um mob feito só de Goals, com a própria regra de nascimento e o próprio teto.",
-      "tags": ["mob", "mundo"],
+      "tags": [
+        "mob",
+        "mundo"
+      ],
       "download": "https://github.com/mine-claude/mod-matilha/releases/download/v0.1.0/matilha-0.1.0.mcmod",
       "sha256": "f70cd5544ace29741bc2b1b665cd9d08bf7f8b6281704e63a07c530970610a9f",
       "size": 1779
@@ -57,7 +71,11 @@
       "version": "0.1.0",
       "side": "client",
       "description": "Um minimapa redondo no canto da tela: relevo, água, mobs, outros jogadores e bússola. Só no cliente.",
-      "tags": ["hud", "visual", "utilidade"],
+      "tags": [
+        "hud",
+        "visual",
+        "utilidade"
+      ],
       "download": "https://github.com/mine-claude/mod-minimapa/releases/download/v0.1.0/minimapa-0.1.0.mcmod",
       "sha256": "2ff73a72afe6a20cc86e8e064d983818f44961b1e56b978f15a0533a7c8e0046",
       "size": 4106
@@ -69,7 +87,11 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Carro e balão programados pelo SDK: o mod lê o volante do piloto e decide como o veículo anda.",
-      "tags": ["veiculo", "mob", "itens"],
+      "tags": [
+        "veiculo",
+        "mob",
+        "itens"
+      ],
       "download": "https://github.com/mine-claude/mod-veiculos/releases/download/v0.1.0/veiculos-0.1.0.mcmod",
       "sha256": "242b38c584be2b263c75aa65c20d9b2e9ae49d0a896de5e75036a2423bbf318e",
       "size": 5918
@@ -78,13 +100,17 @@
       "id": "voz_proximidade",
       "name": "Voz por proximidade",
       "repo": "mine-claude/mod-voz-proximidade",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "side": "both",
-      "description": "Chat de voz por proximidade: o microfone fica desligado por padrão (apertar-para-falar), o servidor só repassa a quem está perto e o navegador toca cada voz em 3D. Nada é gravado e ninguém vê o IP de ninguém.",
-      "tags": ["voz", "audio", "social"],
-      "download": "https://github.com/mine-claude/mod-voz-proximidade/releases/download/v0.1.0/voz_proximidade-0.1.0.mcmod",
-      "sha256": "1aba347683bbe47e0e12dc57943eafb197e7ce78f2906355cef163fc1e10157d",
-      "size": 11236
+      "description": "Chat de voz por proximidade: o microfone fica desligado por padrão (apertar-para-falar), o servidor só repassa a quem está perto e o navegador toca cada voz em 3D. Tela de opções no Esc, numa tecla e em /voz: escolher o microfone, ganho até 300%, testar o microfone, volume e silêncio por pessoa. Funciona no Chrome e no Firefox. Nada é gravado e ninguém vê o IP de ninguém.",
+      "tags": [
+        "voz",
+        "audio",
+        "social"
+      ],
+      "download": "https://github.com/mine-claude/mod-voz-proximidade/releases/download/v0.2.0/voz_proximidade-0.2.0.mcmod",
+      "sha256": "dc680f0b9c393d73365002499a49db7379b8e860a3c2de657d4bfb1656100209",
+      "size": 15394
     },
     {
       "id": "clima_criativo",
@@ -93,7 +119,11 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Três climas originais: chuva de pétalas, névoa de esporos (um efeito de status no jogador) e aurora. Arte por código. /clima petalas | esporos | aurora.",
-      "tags": ["clima", "visual", "mundo"],
+      "tags": [
+        "clima",
+        "visual",
+        "mundo"
+      ],
       "download": "https://github.com/mine-claude/mod-clima-criativo/releases/download/v0.1.0/clima_criativo-0.1.0.mcmod",
       "sha256": "1aa8346f12e7d081a81da5cc11f4e6ae545ca9c1b197aea0920b134b0649a784",
       "size": 3902
@@ -105,7 +135,12 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Doze biomas originais para os mundos novos, cada um com os seus blocos, a sua vegetação e as criaturas que moram nele: Floresta Musgosa, Brejo Luminoso, Dunas Vermelhas, Prado Florido, Copas Altas, Geodos de Cristal, Costa de Corais, Planalto das Ruínas, Savana Dourada, Cogumelos Gigantes, Ipezal e Taiga Nevada. Mexe na geração do mundo: um mundo criado com ele não abre sem ele.",
-      "tags": ["oficial", "mundo", "biomas", "worldgen"],
+      "tags": [
+        "oficial",
+        "mundo",
+        "biomas",
+        "worldgen"
+      ],
       "download": "https://github.com/mine-claude/mod-biomes/releases/download/v0.1.0/biomes-0.1.0.mcmod",
       "sha256": "f42e458e58805d1390e3b13d7ddcea6f773f3a59704700cec4e4e7304ec054b9",
       "size": 106997
@@ -117,7 +152,12 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Criaturas originais que pertencem aos lugares do mundo, longe do clichê de zumbi e esqueleto: o Espreitador do Musgo (um caçador de emboscada disfarçado de monte de musgo), a Sentinela das Copas, a Serpente de Raízes e companhia, com as estruturas onde moram. Arte, animações e sons gerados por código.",
-      "tags": ["oficial", "mobs", "criaturas", "mundo"],
+      "tags": [
+        "oficial",
+        "mobs",
+        "criaturas",
+        "mundo"
+      ],
       "download": "https://github.com/mine-claude/mod-creatures/releases/download/v0.1.0/creatures-0.1.0.mcmod",
       "sha256": "92e3a67a286a474e3f55246bd3c3105589200bfea138d5290a16722565e0361b",
       "size": 2265400
@@ -129,7 +169,12 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Corte o pé da árvore com um machado e ela tomba INTEIRA, como um corpo rígido: uma entidade, uma malha, física no servidor a 20 Hz. Bate no que houver no caminho, repica, deita, e só então vira tora e partícula de folha. Regras de jogo derrubada:arvores e derrubada:dano_arvore.",
-      "tags": ["oficial", "arvores", "fisica", "mundo"],
+      "tags": [
+        "oficial",
+        "arvores",
+        "fisica",
+        "mundo"
+      ],
       "download": "https://github.com/mine-claude/mod-derrubada/releases/download/v0.1.0/derrubada-0.1.0.mcmod",
       "sha256": "31e5850913d56c2c9e25d671f3842b18700a7e059988092be84c34e4ed59d305",
       "size": 9905
@@ -141,7 +186,12 @@
       "version": "0.12.0",
       "side": "both",
       "description": "Uma rede de canos que pede, acha e entrega item sozinha: cano pedido, fornecedor, satélite e de montagem, módulos e chips para programar cada um, melhorias de velocidade e de extração, estação de solda, tela de pedido e um pedido remoto para usar longe da rede. Comandos /lp e /lpkit.",
-      "tags": ["oficial", "logistica", "automacao", "blocos"],
+      "tags": [
+        "oficial",
+        "logistica",
+        "automacao",
+        "blocos"
+      ],
       "download": "https://github.com/mine-claude/mod-logisticspipes/releases/download/v0.12.0/logisticspipes-0.12.0.mcmod",
       "sha256": "d5ffb14651b83b651a727fcb406b5ef6410f3d30aa09a28df49982c1169926b9",
       "size": 307874
@@ -153,7 +203,11 @@
       "version": "0.1.0",
       "side": "both",
       "description": "Baús maiores em três níveis (ferro 54, ouro 81, diamante 108 slots) e kits que melhoram um baú já colocado sem tirar os itens de dentro. Arte e código originais, pintados por código.",
-      "tags": ["oficial", "blocos", "armazenamento"],
+      "tags": [
+        "oficial",
+        "blocos",
+        "armazenamento"
+      ],
       "download": "https://github.com/mine-claude/mod-baus-reforcados/releases/download/v0.1.0/baus_reforcados-0.1.0.mcmod",
       "sha256": "2844d3784733f1bb7cd4d3b4e085e97680d8fdebf02f0f6aca572d5411b65b97",
       "size": 3456
