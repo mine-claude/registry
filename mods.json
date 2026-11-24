@@ -97,6 +97,66 @@
       "download": "https://github.com/mine-claude/mod-clima-criativo/releases/download/v0.1.0/clima_criativo-0.1.0.mcmod",
       "sha256": "1aa8346f12e7d081a81da5cc11f4e6ae545ca9c1b197aea0920b134b0649a784",
       "size": 3902
+    },
+    {
+      "id": "biomes",
+      "name": "Biomas do Mundo",
+      "repo": "mine-claude/mod-biomes",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Doze biomas originais para os mundos novos, cada um com os seus blocos, a sua vegetação e as criaturas que moram nele: Floresta Musgosa, Brejo Luminoso, Dunas Vermelhas, Prado Florido, Copas Altas, Geodos de Cristal, Costa de Corais, Planalto das Ruínas, Savana Dourada, Cogumelos Gigantes, Ipezal e Taiga Nevada. Mexe na geração do mundo: um mundo criado com ele não abre sem ele.",
+      "tags": ["oficial", "mundo", "biomas", "worldgen"],
+      "download": "https://github.com/mine-claude/mod-biomes/releases/download/v0.1.0/biomes-0.1.0.mcmod",
+      "sha256": "f42e458e58805d1390e3b13d7ddcea6f773f3a59704700cec4e4e7304ec054b9",
+      "size": 106997
+    },
+    {
+      "id": "creatures",
+      "name": "Criaturas do Mundo",
+      "repo": "mine-claude/mod-creatures",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Criaturas originais que pertencem aos lugares do mundo, longe do clichê de zumbi e esqueleto: o Espreitador do Musgo (um caçador de emboscada disfarçado de monte de musgo), a Sentinela das Copas, a Serpente de Raízes e companhia, com as estruturas onde moram. Arte, animações e sons gerados por código.",
+      "tags": ["oficial", "mobs", "criaturas", "mundo"],
+      "download": "https://github.com/mine-claude/mod-creatures/releases/download/v0.1.0/creatures-0.1.0.mcmod",
+      "sha256": "92e3a67a286a474e3f55246bd3c3105589200bfea138d5290a16722565e0361b",
+      "size": 2265400
+    },
+    {
+      "id": "derrubada",
+      "name": "Derrubada de Árvores",
+      "repo": "mine-claude/mod-derrubada",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Corte o pé da árvore com um machado e ela tomba INTEIRA, como um corpo rígido: uma entidade, uma malha, física no servidor a 20 Hz. Bate no que houver no caminho, repica, deita, e só então vira tora e partícula de folha. Regras de jogo derrubada:arvores e derrubada:dano_arvore.",
+      "tags": ["oficial", "arvores", "fisica", "mundo"],
+      "download": "https://github.com/mine-claude/mod-derrubada/releases/download/v0.1.0/derrubada-0.1.0.mcmod",
+      "sha256": "31e5850913d56c2c9e25d671f3842b18700a7e059988092be84c34e4ed59d305",
+      "size": 9905
+    },
+    {
+      "id": "logisticspipes",
+      "name": "Logistics Pipes",
+      "repo": "mine-claude/mod-logisticspipes",
+      "version": "0.12.0",
+      "side": "both",
+      "description": "Uma rede de canos que pede, acha e entrega item sozinha: cano pedido, fornecedor, satélite e de montagem, módulos e chips para programar cada um, melhorias de velocidade e de extração, estação de solda, tela de pedido e um pedido remoto para usar longe da rede. Comandos /lp e /lpkit.",
+      "tags": ["oficial", "logistica", "automacao", "blocos"],
+      "download": "https://github.com/mine-claude/mod-logisticspipes/releases/download/v0.12.0/logisticspipes-0.12.0.mcmod",
+      "sha256": "d5ffb14651b83b651a727fcb406b5ef6410f3d30aa09a28df49982c1169926b9",
+      "size": 307874
+    },
+    {
+      "id": "baus_reforcados",
+      "name": "Baús Reforçados",
+      "repo": "mine-claude/mod-baus-reforcados",
+      "version": "0.1.0",
+      "side": "both",
+      "description": "Baús maiores em três níveis (ferro 54, ouro 81, diamante 108 slots) e kits que melhoram um baú já colocado sem tirar os itens de dentro. Arte e código originais, pintados por código.",
+      "tags": ["oficial", "blocos", "armazenamento"],
+      "download": "https://github.com/mine-claude/mod-baus-reforcados/releases/download/v0.1.0/baus_reforcados-0.1.0.mcmod",
+      "sha256": "2844d3784733f1bb7cd4d3b4e085e97680d8fdebf02f0f6aca572d5411b65b97",
+      "size": 3456
     }
   ]
 }
