@@ -52,6 +52,11 @@ conteúdo.
 | `authors` | não | até 8 nomes |
 | `homepage` | não | uma página `https` |
 
+A etiqueta `oficial` em `tags` é dos mods que **já vêm com o servidor do dono** (`biomes`, `creatures`,
+`derrubada`, `logisticspipes`, `baus_reforcados`): eles estão na lista para quem hospeda o próprio servidor.
+Não a use num mod seu — é a única etiqueta que diz de quem o mod é, e num PR de terceiro ela é recusada na
+revisão.
+
 ### Tirando o `sha256`
 
 ```
