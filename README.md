@@ -91,6 +91,9 @@ Para **mod**:
 - O `id` é o nome dentro do `.mcmod` e **nunca muda**. Versão nova é um PR que troca `version`,
   `download`, `sha256` e `size` da entrada que já existe — nunca uma entrada nova.
 - `side` diz onde o mod roda: `client` (só navegador), `server` (só servidor) ou `both`.
+- `icon` e `screenshots` são opcionais e, se vierem, moram em `raw.githubusercontent.com` (o único
+  host de imagem que a página do jogo consegue ler). O validador baixa cada uma e confere formato,
+  tamanho e, no ícone, que é quadrado. Arte original, como o resto do mod.
 
 Para **relay**:
 - A lista é fechada por enquanto: **o relay oficial é decisão do dono**. PR de relay de terceiro fica

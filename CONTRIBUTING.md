@@ -51,6 +51,26 @@ conteúdo.
 | `requires` | não | ids de outros mods **deste** arquivo que precisam carregar junto |
 | `authors` | não | até 8 nomes |
 | `homepage` | não | uma página `https` |
+| `icon` | não | o ícone do mod: PNG/WebP **quadrado** em `raw.githubusercontent.com`, 64×64 (até 256×256), 64 KiB |
+| `screenshots` | não | até 4 imagens do mod no jogo, mesmo host e formatos, 512 KiB cada |
+
+### As imagens (`icon` e `screenshots`)
+
+A tela **Mods** do jogo é uma grade de cartões, e o cartão mostra o `icon`. Ele é carregado **direto
+pela página**, então só vale um endereço de `raw.githubusercontent.com` — é o único host de imagem que
+responde `Access-Control-Allow-Origin: *`, e assim o jogo não faz pedido a mais ninguém:
+
+```json
+"icon": "https://raw.githubusercontent.com/meu-usuario/mod-meu-mod/main/icon.png",
+"screenshots": ["https://raw.githubusercontent.com/meu-usuario/mod-meu-mod/main/docs/tela-1.png"]
+```
+
+O validador baixa cada imagem e confere: existe, os **bytes** são de um PNG ou de um WebP de verdade
+(não um HTML com nome de `.png`), o ícone é quadrado e caibe nos limites. Arte **original** — a regra
+de arte do jogo vale aqui também (nada do Minecraft/Mojang nem de outro jogo).
+
+Sem `icon` o jogo desenha um ícone próprio com as iniciais do mod sobre uma cor tirada do `id`: a
+entrada sem imagem funciona, só fica menos bonita.
 
 A etiqueta `oficial` em `tags` é dos mods que **já vêm com o servidor do dono** (`biomes`, `creatures`,
 `derrubada`, `logisticspipes`, `baus_reforcados`): eles estão na lista para quem hospeda o próprio servidor.

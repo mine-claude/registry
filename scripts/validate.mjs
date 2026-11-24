@@ -17,6 +17,13 @@ const OFFLINE = process.argv.includes('--offline');
 // `official: true` is a claim the registry makes about itself: only the owner's own hosts may carry it.
 const OFFICIAL_HOSTS = ['mineclaude.com', 'www.mineclaude.com'];
 const MAX_ASSET_BYTES = 32 * 1024 * 1024;
+// The images of a mod entry (`icon`, `screenshots`). The game's Mods screen loads them straight from
+// raw.githubusercontent.com, the one image host that answers `Access-Control-Allow-Origin: *`, so a card
+// never costs a request to a third party. An icon is a small square; a screenshot is a page-sized picture.
+const IMAGE_HOST = 'raw.githubusercontent.com';
+const MAX_ICON_BYTES = 64 * 1024;
+const MAX_SHOT_BYTES = 512 * 1024;
+const MAX_ICON_SIDE = 256;
 
 const problems = [];
 const fail = (file, msg) => problems.push(`${file}: ${msg}`);
@@ -107,6 +114,43 @@ async function checkAsset(mod) {
   if (!(bytes[0] === 0x50 && bytes[1] === 0x4b && bytes[2] === 0x03 && bytes[3] === 0x04)) fail('mods.json', `${where}: the asset is not a zip (.mcmod) file`);
 }
 
+/** PNG or WebP by the bytes themselves, never by the server's word, plus a PNG's size out of its IHDR. */
+function readImage(bytes) {
+  const pngMagic = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+  if (pngMagic.every((b, i) => bytes[i] === b)) {
+    const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+    // IHDR is always the first chunk: length(4) type(4) width(4) height(4) from offset 8.
+    const kind = String.fromCharCode(...bytes.slice(12, 16));
+    if (kind !== 'IHDR' || bytes.byteLength < 24) return { format: 'png', width: 0, height: 0 };
+    return { format: 'png', width: view.getUint32(16), height: view.getUint32(20) };
+  }
+  const riff = String.fromCharCode(...bytes.slice(0, 4)) === 'RIFF' && String.fromCharCode(...bytes.slice(8, 12)) === 'WEBP';
+  // A WebP's size lives inside the VP8/VP8L/VP8X chunk, in three different layouts; the game only needs to know it is
+  // a WebP, so the size check is left to PNG (which is what the pixel-art icons are) and the byte cap covers the rest.
+  return riff ? { format: 'webp', width: 0, height: 0 } : { format: null, width: 0, height: 0 };
+}
+
+/** One `icon`/`screenshots` URL: it is really there, it is really a PNG/WebP, and it fits under its cap. */
+async function checkImage(where, url, { maxBytes, square }) {
+  let res;
+  try {
+    res = await fetch(url, { redirect: 'follow' });
+  } catch (e) {
+    fail('mods.json', `${where}: the image could not be fetched (${e?.message ?? e})`);
+    return;
+  }
+  if (!res.ok) { fail('mods.json', `${where}: the image answered HTTP ${res.status} - is it committed on that branch?`); return; }
+  const bytes = new Uint8Array(await res.arrayBuffer());
+  if (bytes.byteLength > maxBytes) { fail('mods.json', `${where}: the image is ${bytes.byteLength} bytes, over the ${maxBytes} limit`); return; }
+  const img = readImage(bytes);
+  if (!img.format) { fail('mods.json', `${where}: the bytes are neither a PNG nor a WebP`); return; }
+  if (!url.toLowerCase().endsWith(`.${img.format}`)) fail('mods.json', `${where}: the URL ends in .${url.split('.').pop()} but the bytes are a ${img.format}`);
+  if (!square || img.format !== 'png') return;
+  if (img.width < 1 || img.height < 1) { fail('mods.json', `${where}: the PNG has no readable size`); return; }
+  if (img.width !== img.height) fail('mods.json', `${where}: an icon has to be square (this one is ${img.width}x${img.height})`);
+  if (img.width > MAX_ICON_SIDE) fail('mods.json', `${where}: an icon is ${MAX_ICON_SIDE}x${MAX_ICON_SIDE} at most (this one is ${img.width}x${img.height})`);
+}
+
 // ---- each file ----
 
 async function checkRelays() {
@@ -159,13 +203,24 @@ async function checkMods() {
       downloads.add(m.download);
     }
     if (m.homepage) checkUrl(file, `mods[${m.id}].homepage`, m.homepage, 'https');
+    // The images: https on the one host a page may read them from, and no two entries pointing at the same file.
+    for (const [field, value] of [['icon', m.icon], ...(m.screenshots ?? []).map((s, i) => [`screenshots[${i}]`, s])]) {
+      if (!value) continue;
+      const img = checkUrl(file, `mods[${m.id}].${field}`, value, 'https');
+      if (img && img.hostname !== IMAGE_HOST) fail(file, `mods[${m.id}].${field}: an image has to be served from ${IMAGE_HOST} (this one is on ${img.hostname})`);
+    }
     for (const dep of m.requires ?? []) {
       if (dep === m.id) fail(file, `mods[${m.id}].requires: a mod cannot require itself`);
       else if (!ids.has(dep)) fail(file, `mods[${m.id}].requires: "${dep}" is not in this file`);
     }
   }
   if (OFFLINE) return;
-  await Promise.all(data.mods.filter((m) => /^[0-9a-f]{64}$/.test(m.sha256 ?? '')).map(checkAsset));
+  const images = [];
+  for (const m of data.mods) {
+    if (m.icon) images.push(checkImage(`mods[${m.id}].icon`, m.icon, { maxBytes: MAX_ICON_BYTES, square: true }));
+    for (const [i, shot] of (m.screenshots ?? []).entries()) images.push(checkImage(`mods[${m.id}].screenshots[${i}]`, shot, { maxBytes: MAX_SHOT_BYTES, square: false }));
+  }
+  await Promise.all([...data.mods.filter((m) => /^[0-9a-f]{64}$/.test(m.sha256 ?? '')).map(checkAsset), ...images]);
 }
 
 try {
