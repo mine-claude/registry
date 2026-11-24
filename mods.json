@@ -176,18 +176,18 @@
       "id": "derrubada",
       "name": "Derrubada de Árvores",
       "repo": "mine-claude/mod-derrubada",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "side": "both",
-      "description": "Corte o pé da árvore com um machado e ela tomba INTEIRA, como um corpo rígido: uma entidade, uma malha, física no servidor a 20 Hz. Bate no que houver no caminho, repica, deita, e só então vira tora e partícula de folha. Regras de jogo derrubada:arvores e derrubada:dano_arvore.",
+      "description": "Corte o pé da árvore com um machado e ela tomba INTEIRA, como um corpo rígido: uma entidade, uma malha, física a 20 Hz. Bate no caminho, repica, deita, e só então vira tora e folha. Uma árvore não é uma forma: tronco 2x2, palmeira curva, galhos, copa enorme e até cogumelo gigante caem igual; um mod declara a sua por tag ou pelo registro derrubada:trees.",
       "tags": [
         "oficial",
         "arvores",
         "fisica",
         "mundo"
       ],
-      "download": "https://github.com/mine-claude/mod-derrubada/releases/download/v0.1.0/derrubada-0.1.0.mcmod",
-      "sha256": "31e5850913d56c2c9e25d671f3842b18700a7e059988092be84c34e4ed59d305",
-      "size": 9905,
+      "download": "https://github.com/mine-claude/mod-derrubada/releases/download/v0.2.0/derrubada-0.2.0.mcmod",
+      "sha256": "1bcb23756aba0fdafcbb7adfd1685eb01d9bef046576a13361a0c0359002da46",
+      "size": 12221,
       "icon": "https://raw.githubusercontent.com/mine-claude/mod-derrubada/main/icon.png"
     },
     {
