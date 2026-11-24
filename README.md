@@ -105,8 +105,9 @@ Precisa de Node 20 ou mais novo.
 
 ```
 npm install
-npm run validate           # esquema + regras + confere o anexo e o sha256 de cada mod (usa a rede)
+npm run validate           # esquema + regras + confere o anexo, o sha256 e as imagens de cada mod (usa a rede)
 npm run validate:offline   # só esquema + regras, sem rede
+npm test                   # as regras do próprio validador (imagens e esquema), sem rede
 ```
 
 ## Licença

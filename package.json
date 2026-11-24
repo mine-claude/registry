@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate.mjs",
-    "validate:offline": "node scripts/validate.mjs --offline"
+    "validate:offline": "node scripts/validate.mjs --offline",
+    "test": "node scripts/self-test.mjs"
   },
   "dependencies": {
     "ajv": "8.17.1",
