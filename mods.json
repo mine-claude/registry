@@ -16,7 +16,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-chapelaria/releases/download/v0.1.0/chapelaria-0.1.0.mcmod",
       "sha256": "e49332465dd7656c5119c64729e7147bc351ff0d317ee7ab11edeff0bd501b96",
-      "size": 7119
+      "size": 7119,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-chapelaria/main/icon.png"
     },
     {
       "id": "capa_extra",
@@ -32,7 +33,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-capa-extra/releases/download/v0.1.0/capa_extra-0.1.0.mcmod",
       "sha256": "eb5247ecfa54631ae8f521a15ad545bf3035f0fd3c0dc0aad5d03c86135725d6",
-      "size": 1389
+      "size": 1389,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-capa-extra/main/icon.png"
     },
     {
       "id": "descanso",
@@ -47,7 +49,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-descanso/releases/download/v0.1.0/descanso-0.1.0.mcmod",
       "sha256": "93b044a2f81dcf4f7bfe49798c0f993e4ca3ec93bc36da8d2a9aac9801669d48",
-      "size": 1898
+      "size": 1898,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-descanso/main/icon.png"
     },
     {
       "id": "matilha",
@@ -62,7 +65,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-matilha/releases/download/v0.1.0/matilha-0.1.0.mcmod",
       "sha256": "f70cd5544ace29741bc2b1b665cd9d08bf7f8b6281704e63a07c530970610a9f",
-      "size": 1779
+      "size": 1779,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-matilha/main/icon.png"
     },
     {
       "id": "minimapa",
@@ -78,7 +82,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-minimapa/releases/download/v0.1.0/minimapa-0.1.0.mcmod",
       "sha256": "2ff73a72afe6a20cc86e8e064d983818f44961b1e56b978f15a0533a7c8e0046",
-      "size": 4106
+      "size": 4106,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-minimapa/main/icon.png"
     },
     {
       "id": "veiculos",
@@ -94,7 +99,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-veiculos/releases/download/v0.1.0/veiculos-0.1.0.mcmod",
       "sha256": "242b38c584be2b263c75aa65c20d9b2e9ae49d0a896de5e75036a2423bbf318e",
-      "size": 5918
+      "size": 5918,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-veiculos/main/icon.png"
     },
     {
       "id": "voz_proximidade",
@@ -110,7 +116,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-voz-proximidade/releases/download/v0.2.0/voz_proximidade-0.2.0.mcmod",
       "sha256": "dc680f0b9c393d73365002499a49db7379b8e860a3c2de657d4bfb1656100209",
-      "size": 15394
+      "size": 15394,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-voz-proximidade/main/icon.png"
     },
     {
       "id": "clima_criativo",
@@ -126,7 +133,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-clima-criativo/releases/download/v0.1.0/clima_criativo-0.1.0.mcmod",
       "sha256": "1aa8346f12e7d081a81da5cc11f4e6ae545ca9c1b197aea0920b134b0649a784",
-      "size": 3902
+      "size": 3902,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-clima-criativo/main/icon.png"
     },
     {
       "id": "biomes",
@@ -143,7 +151,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-biomes/releases/download/v0.1.0/biomes-0.1.0.mcmod",
       "sha256": "f42e458e58805d1390e3b13d7ddcea6f773f3a59704700cec4e4e7304ec054b9",
-      "size": 106997
+      "size": 106997,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-biomes/main/icon.png"
     },
     {
       "id": "creatures",
@@ -160,7 +169,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-creatures/releases/download/v0.1.0/creatures-0.1.0.mcmod",
       "sha256": "92e3a67a286a474e3f55246bd3c3105589200bfea138d5290a16722565e0361b",
-      "size": 2265400
+      "size": 2265400,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-creatures/main/icon.png"
     },
     {
       "id": "derrubada",
@@ -177,7 +187,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-derrubada/releases/download/v0.1.0/derrubada-0.1.0.mcmod",
       "sha256": "31e5850913d56c2c9e25d671f3842b18700a7e059988092be84c34e4ed59d305",
-      "size": 9905
+      "size": 9905,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-derrubada/main/icon.png"
     },
     {
       "id": "logisticspipes",
@@ -194,7 +205,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-logisticspipes/releases/download/v0.12.0/logisticspipes-0.12.0.mcmod",
       "sha256": "d5ffb14651b83b651a727fcb406b5ef6410f3d30aa09a28df49982c1169926b9",
-      "size": 307874
+      "size": 307874,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-logisticspipes/main/icon.png"
     },
     {
       "id": "baus_reforcados",
@@ -210,7 +222,8 @@
       ],
       "download": "https://github.com/mine-claude/mod-baus-reforcados/releases/download/v0.1.0/baus_reforcados-0.1.0.mcmod",
       "sha256": "2844d3784733f1bb7cd4d3b4e085e97680d8fdebf02f0f6aca572d5411b65b97",
-      "size": 3456
+      "size": 3456,
+      "icon": "https://raw.githubusercontent.com/mine-claude/mod-baus-reforcados/main/icon.png"
     }
   ]
 }
