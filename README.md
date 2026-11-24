@@ -29,11 +29,14 @@ A forma exata de cada entrada está em `schema/*.schema.json`, e o formato está
 detalhe em [`docs/registry.md`](https://github.com/mine-claude/mineclaude-registry) do repositório do
 jogo.
 
-### `relays.json` — hoje vazio, de propósito
+### `relays.json` — um relay, e ele está **em teste**
 
-A lista nasce **vazia**: **qual é o relay oficial é decisão do dono** e ainda não foi tomada. Enquanto
-a lista estiver vazia, um mundo hospedado usa o relay embutido no jogo (o do próprio servidor que
-serviu a página) — nada deixa de funcionar.
+**Qual será o relay oficial é decisão do dono**, e ela ainda não saiu. O que está na lista hoje é um
+relay **de teste** (`"status": "teste"`), e o jogo mostra isso na tela. A imagem do relay é pública no
+Docker Hub (`azx0025/mineclaude-relay`), então quem quiser subir o seu próprio relay pode.
+
+Com a lista vazia — ou sem acesso a ela — um mundo hospedado usa o relay embutido no jogo (o do
+próprio servidor que serviu a página): nada deixa de funcionar.
 
 ### Até onde vai a confiança
 

@@ -14,8 +14,10 @@ Antes de qualquer coisa, leia a seção "Até onde vai a confiança" do [`README
 4. `npm install && npm run validate`.
 5. Abra o PR. Diga o que é a entrada, quem cuida dela e como você conferiu.
 
-Formatação: JSON com **2 espaços** de indentação e uma linha em branco no fim do arquivo. O Actions
-confere isso também.
+Formatação: JSON com **2 espaços** de indentação, fim de linha LF e **uma** quebra de linha no fim do
+arquivo, sem tabulação e sem espaço sobrando no fim das linhas. Um array curto de textos (como
+`tags`) pode ficar numa linha só — é a forma legível. O validador confere isso antes de olhar o
+conteúdo.
 
 ## `mods.json` — uma entrada campo por campo
 
@@ -89,8 +91,8 @@ chama para mostrar "Online · N jogadores".
 
 ## `relays.json` — fechado por enquanto
 
-O relay oficial é **decisão do dono** e ainda não saiu, então a lista está vazia de propósito. Um PR
-de relay de terceiro pode ser aberto, mas fica esperando essa decisão. A forma da entrada:
+O relay **oficial** é decisão do dono e ainda não saiu. O que está na lista é um relay **de teste**.
+Um PR de relay de terceiro pode ser aberto, mas fica esperando essa decisão. A forma da entrada:
 
 ```json
 {
@@ -98,13 +100,22 @@ de relay de terceiro pode ser aberto, mas fica esperando essa decisão. A forma 
   "name": "Meu relay",
   "url": "wss://relay.exemplo.com",
   "health": "https://relay.exemplo.com/healthz",
-  "region": "sa-east",
+  "stats": "https://relay.exemplo.com/stats",
+  "region": "br",
+  "status": "teste",
+  "maxPlayersPerRoom": 8,
   "operator": "quem cuida"
 }
 ```
 
 - `url` é `wss` obrigatoriamente; `health` é `https` e é o que o jogo chama para medir a latência.
 - Sem `health`, o jogo tenta `https://<host do url>/healthz`.
+- `status` é `teste` (o padrão, e o jogo avisa na tela) ou `producao`.
+- `maxPlayersPerRoom` é o limite do próprio relay por mundo hospedado.
+- `region` aceita `br` ou o estilo de nuvem (`sa-east`, `eu-west-1`).
+
+A imagem do relay é pública no Docker Hub (`azx0025/mineclaude-relay`): dá para subir o seu, com as
+origens permitidas apontando para o seu servidor.
 
 ## O que faz um PR ser recusado
 

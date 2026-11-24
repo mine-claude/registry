@@ -21,7 +21,29 @@ const MAX_ASSET_BYTES = 32 * 1024 * 1024;
 const problems = [];
 const fail = (file, msg) => problems.push(`${file}: ${msg}`);
 
-const readJson = async (rel) => JSON.parse(await readFile(path.join(ROOT, rel), 'utf8'));
+/** Reads a registry file, checking the shape of the TEXT first so a diff stays readable. */
+async function readJson(rel) {
+  const raw = await readFile(path.join(ROOT, rel), 'utf8');
+  checkFormatting(rel, raw);
+  return JSON.parse(raw);
+}
+
+/**
+ * The file has to stay diff-friendly: LF, one trailing newline, spaces in pairs, no tabs and no
+ * trailing blanks. A short array of strings may stay on one line — that is the readable form.
+ */
+function checkFormatting(file, raw) {
+  if (raw.includes('\r')) fail(file, 'use LF line endings, not CRLF');
+  if (raw.includes('\t')) fail(file, 'indent with spaces, never tabs');
+  if (!raw.endsWith('\n')) fail(file, 'the file must end with a newline');
+  if (raw.endsWith('\n\n')) fail(file, 'the file must end with exactly one newline');
+  for (const [i, line] of raw.split('\n').entries()) {
+    const at = `line ${i + 1}`;
+    if (/[ \t]$/.test(line)) fail(file, `${at}: trailing whitespace`);
+    const indent = /^ */.exec(line)[0].length;
+    if (indent % 2 !== 0) fail(file, `${at}: indent is ${indent} spaces, not a multiple of 2`);
+  }
+}
 
 /** A host nobody outside a LAN can reach has no business in a public registry. */
 function privateHost(host) {

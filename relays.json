@@ -1,5 +1,18 @@
 {
   "version": 1,
   "updated": "2026-11-24",
-  "relays": []
+  "relays": [
+    {
+      "id": "teste-marcosbrendon",
+      "name": "Relay de teste (Brasil)",
+      "url": "wss://relay.marcosbrendon.com",
+      "health": "https://relay.marcosbrendon.com/healthz",
+      "stats": "https://relay.marcosbrendon.com/stats",
+      "region": "br",
+      "status": "teste",
+      "maxPlayersPerRoom": 8,
+      "operator": "MineClaude",
+      "notes": "Em teste. Qual sera o relay OFICIAL e decisao do dono."
+    }
+  ]
 }

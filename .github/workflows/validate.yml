@@ -26,19 +26,6 @@ jobs:
       - name: Install the validator's dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Validate the registry (schema, rules, release assets, sha256)
+      # The same command a contributor runs locally: formatting, schema, rules, and the release asset's sha256.
+      - name: Validate the registry
         run: node scripts/validate.mjs
-
-      - name: The JSON must stay pretty-printed with 2 spaces
-        run: |
-          set -e
-          for f in relays.json servers.json mods.json schema/*.schema.json; do
-            node -e '
-              const fs = require("node:fs");
-              const f = process.argv[1];
-              const raw = fs.readFileSync(f, "utf8");
-              const want = JSON.stringify(JSON.parse(raw), null, 2) + "\n";
-              if (raw !== want) { console.error(`${f}: run  node -e "..."  or reformat with 2-space indent and a trailing newline`); process.exit(1); }
-            ' "$f"
-          done
-          echo "Formatting OK."
